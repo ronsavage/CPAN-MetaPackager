@@ -99,7 +99,7 @@ sub populate_packages_table
 	$$pad{$table_name}	= $self -> read_table($table_name);
 	my($packages_count)	= $#{$$pad{$table_name} } + 1;
 
-	$self -> logger -> info("Finished populate_packages_table(). Stored $count{package} records into '$table_name'");
+	$self -> logger -> info("Finished populate_packages_table(). Stored $count{package} records into table '$table_name'");
 
 }	# End of populate_packages_table.
 
