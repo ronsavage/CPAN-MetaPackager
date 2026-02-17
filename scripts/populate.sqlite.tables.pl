@@ -28,7 +28,7 @@ say "populate.sqlite.tables.pl - Populate all SQLite tables\n";
 my(%options);
 
 $options{help}	 	= 0;
-$options{home_path}	= '.';
+$options{home_path}	= "$ENV{HOME}/perl.modules/CPAN-MetaPackager";
 $options{log_level}	= 'info';
 my(%opts)			=
 (
@@ -62,7 +62,7 @@ populate.sqlite.tables.pl [options]
 
 	Options:
 	-help
-	-home_path
+	-home_path string
 	-log_level info
 
 All switches can be reduced to a single letter, except of course -he and -ho.
@@ -81,7 +81,7 @@ Print help and exit.
 
 The path to the directory containing data/ and html/. Unpack distro to populate.
 
-Default: '.'.
+Default: $ENV{HOME}/perl.modules/CPAN-MetaPackager.
 
 =item -log_level String
 

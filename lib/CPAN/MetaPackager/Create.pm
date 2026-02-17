@@ -42,27 +42,6 @@ sub create_all_tables
 }	# End of create_all_tables.
 
 # --------------------------------------------------
-
-sub create_constants_table
-{
-	my($self)        = @_;
-	my($table_name)  = 'constants';
-	my($primary_key) = $self -> creator -> generate_primary_key_sql($table_name);
-	my($engine)      = $self -> engine;
-	my($result)      = $self -> creator -> create_table(<<SQL);
-create table $table_name
-(
-id		$primary_key,
-name	text not null,
-value	text not null
-) strict $engine
-SQL
-
-	return $result;
-
-}	# End of create_constants_table.
-
-# --------------------------------------------------
 # In the log table:
 # o action	=> 'add', 'delete', 'export', 'import', 'update'.
 # o context	=> 'flower', etc.

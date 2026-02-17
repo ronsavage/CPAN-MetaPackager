@@ -17,7 +17,7 @@ use Types::Standard qw/Str/;
 
 has packages_path =>
 (
-	default		=> sub{return 'Downloads/02packages.details.txt'},
+	default		=> sub{return 'data/02packages.details.txt'},
 	is			=> 'rw',
 	isa			=> Str,
 	required	=> 0,
