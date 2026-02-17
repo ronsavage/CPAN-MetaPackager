@@ -23,7 +23,7 @@ has config =>
 
 has config_path =>
 (
-	default		=> sub{return 'data/cpan.metacurator.conf'},
+	default		=> sub{return 'data/cpan.metapackager.conf'},
 	is			=> 'rw',
 	isa			=> Str,
 	required	=> 0,
@@ -32,7 +32,7 @@ has config_path =>
 
 has database_path =>
 (
-	default		=> sub{return 'data/cpan.metacurator.sqlite'},
+	default		=> sub{return 'data/cpan.metapackager.sqlite'},
 	is			=> 'rw',
 	isa			=> Str,
 	required	=> 0,
@@ -71,22 +71,6 @@ has logger =>
 	required	=> 0,
 );
 
-has logo_path =>
-(
-	default		=> '',
-	is			=> 'rw',
-	isa			=> Str,
-	required	=> 1,
-);
-
-has node_types =>
-(
-	default		=> sub{return [qw/acronym leaf see_also topic unknown/]},
-	is			=> 'rw',
-	isa			=> ArrayRef,
-	required	=> 0,
-);
-
 has separator =>
 (
 	default		=> '-' x 50,
@@ -102,21 +86,13 @@ has separator =>
 
 has table_names =>
 (
-	default		=> sub{return [qw/constants log modules topics/]},
+	default		=> sub{return [qw/log packages/]},
 	is			=> 'rw',
 	isa			=> ArrayRef,
 	required	=> 0,
 );
 
-has tiddlers_path =>
-(
-	default		=> sub{return 'data/tiddlers.json'},
-	is			=> 'rw',
-	isa			=> Str,
-	required	=> 0,
-);
-
-our $VERSION = '1.09';
+our $VERSION = '1.00';
 
 # -----------------------------------------------
 

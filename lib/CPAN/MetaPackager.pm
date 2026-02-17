@@ -1,10 +1,8 @@
 package CPAN::MetaPackager;
 
 use 5.36.0;
-use parent 'CPAN::MetaPackager::Util::Database';
-use warnings qw(FATAL utf8); # Fatalize encoding glitches.
 
-our $VERSION = '1.08';
+our $VERSION = '1.00';
 
 #-------------------------------------------------
 
@@ -16,15 +14,12 @@ our $VERSION = '1.08';
 
 Note: My web host and I use case-sensitive file systems.
 
-Steps (2026-01-25):
-	a. cd ~/perl.modules/CPAN-MetaPackager/
-	b. cp /dev/null log/development.log
-	c. Browse Perl.Wiki.html
-	d. In the 'Tools' tab click 'export all'
-	e. In the pop-up, click 'JSON format'
-	f. cp ~/Downloads/tiddlers.json data/cpan.metacurator.tiddlers.json
-	h. build.module.sh CPAN::MetaPackager 1.03
-	i. scripts/build.db.sh
+Steps (2026-02-17):
+	a. cd ~/Downloads/
+	b. wget https://www.cpan.org/modules/02packages.details.txt.gz
+	b. gunzip 02packages.details.txt.gz (Contains about 270,458 records + 10 header lines)
+	d. build.module.sh CPAN::MetaPackager 1.00
+	e. scripts/build.db.sh
 
 =head1 Machine-Readable Change Log
 
@@ -56,7 +51,7 @@ Perl 5.
 
 =head1 Copyright
 
-Australian copyright (c) 2025, Ron Savage.
+Australian copyright (c) 2026, Ron Savage.
 
 	All Programs of mine are 'OSI Certified Open Source Software';
 	you can redistribute them and/or modify them under the terms of
