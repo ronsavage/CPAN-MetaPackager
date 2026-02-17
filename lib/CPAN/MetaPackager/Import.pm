@@ -59,6 +59,7 @@ sub populate_packages_table
 	my($packages)	= $self -> read_packages_file;
 	my($count)		= 0;
 
+	my($author);
 	my($distro);
 	my(@fields);
 	my($package);
@@ -70,9 +71,11 @@ sub populate_packages_table
 
 		next if ($count <= 9);
 
-		($package, $version, $distro) = split(/\s+/, $line);
+		($package, $version, $distro)	= split(/\s+/, $line);
+		@fields							= split('/', $distro);
+		$author							= $fields[2];
 
-		say "<$package> <$version> <$distro>";
+		say "<$package> <$version> <$author> <$distro>";
 
 	}
 
