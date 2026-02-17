@@ -12,18 +12,8 @@ use File::Spec;
 use File::Slurper 'read_lines';
 
 use Moo;
-use Mojo::JSON 'from_json';
 
-use Text::CSV::Encoded;
-use Types::Standard qw/ArrayRef Int Str/;
-
-has constants_csv_path =>
-(
-	default		=> sub{return 'data/cpan.metapackager.constants.csv'},
-	is			=> 'rw',
-	isa			=> Str,
-	required	=> 0,
-);
+use Types::Standard qw/Str/;
 
 has packages_path =>
 (
@@ -37,63 +27,6 @@ our $VERSION = '1.00';
 
 # -----------------------------------------------
 
-sub import_csv_file
-{
-	my($self, $csv, $path, $table_name, $col_name_1, $col_name_2) = @_;
-
-	$self -> logger -> info("Populating the '$table_name' table with import_csv_file()");
-
-	open(my $io, '<', $path) || die "Can't open($path): $!\n";
-
-	$csv -> column_names($csv -> getline($io) );
-
-	my($count) = 0;
-
-	my($error_message);
-	my(%keys);
-
-	for my $item (@{$csv -> getline_hr_all($io) })
-	{
-		$count++;
-
-		for my $column (@{$self -> column_names})
-		{
-			if (! defined $$item{$column})
-			{
-				$self -> logger -> error("$table_name. Row: $count. Column $column undefined");
-			}
-		}
-
-		if ($keys{$$item{$col_name_1} })
-		{
-			$error_message = "$table_name. Duplicate $table_name.$col_name_1: $keys{$$item{$col_name_1} }";
-
-			$self -> logger -> error($error_message);
-
-			die $error_message;
-		}
-
-		$keys{$$item{$col_name_1} } = $self -> insert_hashref
-		(
-			$table_name,
-			{
-				id			=> $count,
-				$col_name_1	=> $$item{$col_name_1},
-				$col_name_2	=> $$item{$col_name_2},
-			}
-		);
-
-		say "Stored $count records into '$table_name'" if ($count % 10000 == 0);
-	}
-
-	close $io;
-
-	$self -> logger -> info("Stored $count records into '$table_name'");
-
-} # End of import_csv_file.
-
-# -----------------------------------------------
-
 sub populate_all_tables
 {
 	my($self) = @_;
@@ -102,14 +35,7 @@ sub populate_all_tables
 	$self -> init_db;
 	$self -> logger -> info('Populating all tables');
 
-	my($csv) = Text::CSV::Encoded -> new
-	({
-		allow_whitespace	=> 1,
-		encoding_in			=> 'utf-8',
-		strict				=> 1,
-	});
-
-	$self -> populate_constants_table;
+	$self -> populate_packages_table;
 
 	$self -> logger -> info('Populated all tables');
 	$self -> logger -> info('-' x 50);
@@ -122,20 +48,20 @@ sub populate_all_tables
 
 # -----------------------------------------------
 
-sub populate_constants_table
+sub populate_packages_table
 {
-	my($self, $csv)	= @_;
-	my($path)		= File::Spec -> catfile($self -> home_path, $self -> constants_csv_path);
-	my($table_name)	= 'constants';
+	my($self)		= @_;
+	my($path)		= File::Spec -> catfile($self -> home_path, $self -> packages_path);
+	my($table_name)	= 'packages';
 
 	$self -> get_table_column_names(true, $table_name); # Populates $self -> column_names.
-	$self -> import_csv_file($csv, $path, $table_name, 'name', 'value');
 
-	my($pad)				= $self -> pad; # For temporary use, during import.
-	$$pad{$table_name}		= $self -> read_table($table_name);
-	my($constants_count)	= $#{$$pad{$table_name} } + 1;
+	my($packages)		= $self -> read_packages_file;
+	my($pad)			= $self -> pad; # For temporary use, during import.
+	$$pad{$table_name}	= $self -> read_table($table_name);
+	my($packages_count)	= $#{$$pad{$table_name} } + 1;
 
-	$self -> logger -> info("Finished populate_constants_table(). Stored $constants_count records into '$table_name'");
+	$self -> logger -> info("Finished populate_packages_table(). Stored $packages_count records into '$table_name'");
 
 }	# End of populate_constants_table.
 
@@ -150,6 +76,8 @@ sub read_packages_file
 
 	my($file_name)	= File::Spec -> catfile($self -> home_path, $self -> packages_path);
 	my(@packages)	= read_lines($file_name, 'UTF-8');
+
+	$self -> logger -> info("$file_name: record count: @{[$#packages + 1]}");
 
 	return \@packages;
 
