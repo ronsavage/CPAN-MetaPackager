@@ -56,7 +56,26 @@ sub populate_packages_table
 
 	$self -> get_table_column_names(true, $table_name); # Populates $self -> column_names.
 
-	my($packages)		= $self -> read_packages_file;
+	my($packages)	= $self -> read_packages_file;
+	my($count)		= 0;
+
+	my($distro);
+	my(@fields);
+	my($package);
+	my($version);
+
+	for my $line (@$packages)
+	{
+		$count++;
+
+		next if ($count <= 9);
+
+		($package, $version, $distro) = split(/\s+/, $line);
+
+		say "<$package> <$version> <$distro>";
+
+	}
+
 	my($pad)			= $self -> pad; # For temporary use, during import.
 	$$pad{$table_name}	= $self -> read_table($table_name);
 	my($packages_count)	= $#{$$pad{$table_name} } + 1;

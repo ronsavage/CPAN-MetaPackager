@@ -14,13 +14,13 @@ our $VERSION = '1.00';
 
 Notes:
 	a. My web host and I use case-sensitive file systems.
-	b. 02packages.details.txt.gz contains 10 header lines & about 270,458 records
+	b. 02packages.details.txt.gz contains 9 header lines & about 270,458 records
 
 Steps (2026-02-17):
 	a. Unpack the distro: tar xvf CPAN-MetaPackager-1.00.tgz
 	b. cd CPAN-MetaPackager/data
 	c. wget https://www.cpan.org/modules/02packages.details.txt.gz
-	d. gunzip 02packages.details.txt.gz (Contains about 270,458 records + 10 header lines)
+	d. gunzip 02packages.details.txt.gz
 	e. scripts/build.db.sh
 
 =head1 Machine-Readable Change Log
