@@ -56,36 +56,52 @@ sub populate_packages_table
 
 	$self -> get_table_column_names(true, $table_name); # Populates $self -> column_names.
 
-	my($packages)	= $self -> read_packages_file;
-	my($count)		= 0;
+	my($packages) = $self -> read_packages_file;
 
 	my($author);
+	my(%count);
 	my($distro);
 	my(@fields);
 	my($package);
+	my($record);
 	my($version);
+
+	$count{package}	= 0;
+	$count{total}	= 0;
 
 	for my $line (@$packages)
 	{
-		$count++;
+		$count{total}++;
 
-		next if ($count <= 9);
+		next if ($count{total} <= 9);
+
+		$count{package}++;
 
 		($package, $version, $distro)	= split(/\s+/, $line);
 		@fields							= split('/', $distro);
 		$author							= $fields[2];
 
-		say "<$package> <$version> <$author> <$distro>";
+		$self -> insert_hashref
+		(
+			$table_name,
+			{
+				id		=> $count{package},
+				author	=> $author,
+				name	=> $package,
+				version	=> $version,
+			}
+		);
 
+		say "Stored $count records into '$table_name'" if ($count{package} % 10000 == 0);
 	}
 
 	my($pad)			= $self -> pad; # For temporary use, during import.
 	$$pad{$table_name}	= $self -> read_table($table_name);
 	my($packages_count)	= $#{$$pad{$table_name} } + 1;
 
-	$self -> logger -> info("Finished populate_packages_table(). Stored $packages_count records into '$table_name'");
+	$self -> logger -> info("Finished populate_packages_table(). Stored $count{package} records into '$table_name'");
 
-}	# End of populate_constants_table.
+}	# End of populate_packages_table.
 
 # --------------------------------------------------
 
