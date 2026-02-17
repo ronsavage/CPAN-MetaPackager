@@ -28,7 +28,7 @@ say "populate.sqlite.tables.pl - Populate all SQLite tables\n";
 my(%options);
 
 $options{help}	 	= 0;
-$options{home_path}	= "$ENV{HOME}/perl.modules/CPAN-MetaCurator";
+$options{home_path}	= '.';
 $options{log_level}	= 'info';
 my(%opts)			=
 (
@@ -81,7 +81,7 @@ Print help and exit.
 
 The path to the directory containing data/ and html/. Unpack distro to populate.
 
-Default: $ENV{HOME}/perl.modules/CPAN-MetaCurator.
+Default: '.'.
 
 =item -log_level String
 
