@@ -86,7 +86,7 @@ has separator =>
 
 has table_names =>
 (
-	default		=> sub{return [qw/log packages/]},
+	default		=> sub{return [qw/constants log packages/]},
 	is			=> 'rw',
 	isa			=> ArrayRef,
 	required	=> 0,
