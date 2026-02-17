@@ -37,6 +37,63 @@ our $VERSION = '1.00';
 
 # -----------------------------------------------
 
+sub import_csv_file
+{
+	my($self, $csv, $path, $table_name, $col_name_1, $col_name_2) = @_;
+
+	$self -> logger -> info("Populating the '$table_name' table with import_csv_file()");
+
+	open(my $io, '<', $path) || die "Can't open($path): $!\n";
+
+	$csv -> column_names($csv -> getline($io) );
+
+	my($count) = 0;
+
+	my($error_message);
+	my(%keys);
+
+	for my $item (@{$csv -> getline_hr_all($io) })
+	{
+		$count++;
+
+		for my $column (@{$self -> column_names})
+		{
+			if (! defined $$item{$column})
+			{
+				$self -> logger -> error("$table_name. Row: $count. Column $column undefined");
+			}
+		}
+
+		if ($keys{$$item{$col_name_1} })
+		{
+			$error_message = "$table_name. Duplicate $table_name.$col_name_1: $keys{$$item{$col_name_1} }";
+
+			$self -> logger -> error($error_message);
+
+			die $error_message;
+		}
+
+		$keys{$$item{$col_name_1} } = $self -> insert_hashref
+		(
+			$table_name,
+			{
+				id			=> $count,
+				$col_name_1	=> $$item{$col_name_1},
+				$col_name_2	=> $$item{$col_name_2},
+			}
+		);
+
+		say "Stored $count records into '$table_name'" if ($count % 10000 == 0);
+	}
+
+	close $io;
+
+	$self -> logger -> info("Stored $count records into '$table_name'");
+
+} # End of import_csv_file.
+
+# -----------------------------------------------
+
 sub populate_all_tables
 {
 	my($self) = @_;
