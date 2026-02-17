@@ -92,7 +92,7 @@ sub populate_packages_table
 			}
 		);
 
-		say "Stored $count records into '$table_name'" if ($count{package} % 10000 == 0);
+		say "Stored $count{package} records into '$table_name'" if ($count{package} % 10000 == 0);
 	}
 
 	my($pad)			= $self -> pad; # For temporary use, during import.
