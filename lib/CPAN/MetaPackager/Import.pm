@@ -17,6 +17,14 @@ use Mojo::JSON 'from_json';
 use Text::CSV::Encoded;
 use Types::Standard qw/ArrayRef Int Str/;
 
+has constants_csv_path =>
+(
+	default		=> sub{return 'data/cpan.metapackager.constants.csv'},
+	is			=> 'rw',
+	isa			=> Str,
+	required	=> 0,
+);
+
 has packages_path =>
 (
 	default		=> sub{return 'Downloads/02packages.details.txt'},
