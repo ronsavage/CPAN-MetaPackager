@@ -13,8 +13,6 @@ use File::Spec;
 
 use Moo;
 
-use File::Slurper 'read_lines';
-
 our $VERSION = '1.00';
 
 # -----------------------------------------------

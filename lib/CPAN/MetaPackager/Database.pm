@@ -1,7 +1,6 @@
 package CPAN::MetaPackager::Database;
 
 use 5.36.0;
-use constant html_id_offset => 10000;
 use parent 'CPAN::MetaPackager::Config';
 use warnings qw(FATAL utf8); # Fatalize encoding glitches.
 

@@ -17,3 +17,22 @@
 [2026-02-18 09:42:46.90790] [1037844] [info] Finished populate_packages_table(). Stored 90 records into 'packages'
 [2026-02-18 09:42:46.90806] [1037844] [info] Populated all tables
 [2026-02-18 09:42:46.90817] [1037844] [info] --------------------------------------------------
+[2026-02-19 10:51:14.68429] [1216536] [info] Connected to dbi:SQLite:dbname=./data/cpan.metapackager.sqlite
+[2026-02-19 10:51:14.68467] [1216536] [info] --------------------------------------------------
+[2026-02-19 10:51:14.68470] [1216536] [info] Dropping all tables
+[2026-02-19 10:51:14.68968] [1216536] [info] Dropped all tables
+[2026-02-19 10:51:14.68974] [1216536] [info] --------------------------------------------------
+[2026-02-19 10:51:14.91067] [1216544] [info] Connected to dbi:SQLite:dbname=./data/cpan.metapackager.sqlite
+[2026-02-19 10:51:14.91085] [1216544] [info] --------------------------------------------------
+[2026-02-19 10:51:14.91088] [1216544] [info] Creating all tables
+[2026-02-19 10:51:14.92190] [1216544] [info] Created all tables
+[2026-02-19 10:51:14.92195] [1216544] [info] --------------------------------------------------
+[2026-02-19 10:51:15.14747] [1216545] [info] Connected to dbi:SQLite:dbname=/home/ron/perl.modules/CPAN-MetaPackager/data/cpan.metapackager.sqlite
+[2026-02-19 10:51:15.14766] [1216545] [info] --------------------------------------------------
+[2026-02-19 10:51:15.14768] [1216545] [info] Populating all tables
+[2026-02-19 10:51:15.14830] [1216545] [info] Connected to dbi:SQLite:dbname=/home/ron/perl.modules/CPAN-MetaPackager/data/cpan.metapackager.sqlite
+[2026-02-19 10:51:15.14836] [1216545] [info] --------------------------------------------------
+[2026-02-19 10:51:15.23925] [1216545] [info] /home/ron/perl.modules/CPAN-MetaPackager/data/02packages.details.txt: record count: 270461
+[2026-02-19 11:38:48.13945] [1216545] [info] Finished populate_packages_table(). Stored 270452 records into 'packages'
+[2026-02-19 11:38:48.14575] [1216545] [info] Populated all tables
+[2026-02-19 11:38:48.14579] [1216545] [info] --------------------------------------------------

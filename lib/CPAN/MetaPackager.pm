@@ -21,7 +21,7 @@ Steps (2026-02-17):
 	b. cd CPAN-MetaPackager/data
 	c. wget https://www.cpan.org/modules/02packages.details.txt.gz
 	d. gunzip 02packages.details.txt.gz
-	e. scripts/build.db.sh
+	e. scripts/build.db.sh (takes 47 mins on my Levono M70Q 'Tiny' desktop)
 
 =head1 Machine-Readable Change Log
 
