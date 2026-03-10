@@ -39,6 +39,7 @@ my(%params) =
 		'DBI'						=> 1.645,
 		'DBIx::Admin::CreateTable'	=> 2.11,
 		'DBIx::Simple'				=> 1.37,
+		'ExtUtils::MakeMaker'		=> 7.70,
 		'File::Slurper'				=> 0.014,
 		'File::Spec'				=> 3.90,
 		'Getopt::Long'				=> 2.57,
@@ -46,13 +47,10 @@ my(%params) =
 		'Moo'						=> 2.005005,
 		'open'						=> 1.13,
 		'parent'					=> 0.242,
+		'Pod::Usage'				=> 2.03,
 		'strict'					=> 1.12,
 		'Types::Standard'			=> 2.006000,
 		'warnings'					=> 1.58,
-	},
-	TEST_REQUIRES =>
-	{
-		'Test::More' => 1.001002,
 	},
 	VERSION_FROM => 'lib/CPAN/MetaPackager.pm',
 );
