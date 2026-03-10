@@ -10,18 +10,19 @@ our $VERSION = '1.00';
 
 =pod
 
-=head1 How to convert a Perl.Wiki.html into a jsTree
+=head1 How to convert a package details file into an SQL db
 
 Notes:
 	a. My web host and I use case-sensitive file systems.
 	b. 02packages.details.txt.gz contains 9 header lines & about 270,458 records
 
 Steps (2026-02-17):
-	a. Unpack the distro: tar xvf CPAN-MetaPackager-1.00.tgz
-	b. cd CPAN-MetaPackager/data
-	c. wget https://www.cpan.org/modules/02packages.details.txt.gz
-	d. gunzip 02packages.details.txt.gz
-	e. scripts/build.db.sh (takes 47 mins on my Levono M70Q 'Tiny' desktop)
+	a. cd /tmp
+	b. wget https://www.cpan.org/modules/02packages.details.txt.gz
+	c. gunzip 02packages.details.txt.gz
+	d. Unpack the distro: tar xvf CPAN-MetaPackager-1.00.tgz
+	e. cd CPAN-MetaPackager
+	f. scripts/build.db.sh (takes 47 mins on my Levono M70Q 'Tiny' desktop)
 
 =head1 Machine-Readable Change Log
 
