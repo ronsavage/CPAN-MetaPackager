@@ -17,7 +17,7 @@ use Types::Standard qw/Str/;
 
 has packages_path =>
 (
-	default		=> sub{return 'data/02packages.details.txt'},
+	default		=> sub{return '/tmp/02packages.details.txt'},
 	is			=> 'rw',
 	isa			=> Str,
 	required	=> 0,
@@ -119,7 +119,7 @@ sub read_packages_file
 
 	return \@packages;
 
-} # End of read_packagespackages_file.
+} # End of read_packages_file.
 
 # --------------------------------------------------
 
