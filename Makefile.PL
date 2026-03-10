@@ -52,6 +52,9 @@ my(%params) =
 		'Types::Standard'			=> 2.006000,
 		'warnings'					=> 1.58,
 	},
+	TEST_REQUIRES =>
+	{
+	},
 	VERSION_FROM => 'lib/CPAN/MetaPackager.pm',
 );
 
