@@ -112,7 +112,7 @@ sub read_packages_file
 	$self -> init_config;
 	$self -> init_db;
 
-	my($file_name)	= File::Spec -> catfile($self -> home_path, $self -> packages_path);
+	my($file_name)	= $self -> packages_path;
 	my(@packages)	= read_lines($file_name, 'UTF-8');
 
 	$self -> logger -> info("$file_name: record count: @{[$#packages + 1]}. Includes 9 header records");
