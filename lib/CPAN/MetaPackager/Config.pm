@@ -142,36 +142,21 @@ sub _init_config
 
 =head1 NAME
 
-CPAN::MetaPackager::Config - Manage the cpan.metacurator.sqlite database
+CPAN::MetaPackager::Config - Manage the cpan.metapackager.sqlite database
 
-=head1 Synopsis
+=head1 Instructions
 
-See L<CPAN::MetaPackager/Synopsis>.
-
-=head1 Description
-
-L<CPAN::MetaPackager> implements an interface to the 'levies' database.
-
-=head1 Methods
-
-=head2 config()
-
-Returns a hashref of options read from the config file, which defaults to
-C<config_name()> (data/cpan.metacurator.conf) under C<home_path()>.
-
-=head2 config_name()
-
-Returns a string holding the dir/name of the config file.
-
-=head1 Support
-
-Email the author.
+See POD in MetaPackager.pm.
 
 =head1 Author
 
-C<CPAN::MetaPackager> was written by Ron Savage I<E<lt>ron@savage.net.auE<gt>> in 2025.
+Ron Savage I<E<lt>ron@savage.net.auE<gt>>.
 
-L<Home page|https://savage.net.au/index.html>.
+My homepage: L<https://savage.net.au/>.
+
+=head1 License
+
+Perl 5.
 
 =head1 Copyright
 

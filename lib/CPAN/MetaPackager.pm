@@ -10,6 +10,10 @@ our $VERSION = '1.00';
 
 =pod
 
+=head1 NAME
+
+CPAN::MetaPackager - Manage the cpan.metapackager.sqlite database
+
 =head1 How to convert a package details file into an SQL db
 
 Notes:
@@ -44,7 +48,7 @@ L<https://rt.cpan.org/Public/Dist/Display.html?Name=CPAN-MetaPackager>.
 
 =head1 Author
 
-Current maintainer: Ron Savage I<E<lt>ron@savage.net.auE<gt>>.
+Ron Savage I<E<lt>ron@savage.net.auE<gt>>.
 
 My homepage: L<https://savage.net.au/>.
 

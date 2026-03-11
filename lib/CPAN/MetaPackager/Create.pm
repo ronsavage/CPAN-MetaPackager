@@ -130,27 +130,27 @@ sub drop_all_tables
 
 =pod
 
-=head1 Machine-Readable Change Log
+=head1 NAME
 
-The file Changes was converted into Changelog.ini by L<Module::Metadata::Changes>.
+CPAN::MetaPackager::Create - Manage the cpan.metapackager.sqlite database
 
-=head1 Version Numbers
+=head1 Instructions
 
-Version numbers < 1.00 represent development versions. From 1.00 up, they are production versions.
-
-=head1 Support
-
-Email the author.
+See POD in MetaPackager.pm.
 
 =head1 Author
 
-L<CPAN::MetaPackager> was written by Ron Savage I<E<lt>ron@savage.net.auE<gt>> in 2025.
+Ron Savage I<E<lt>ron@savage.net.auE<gt>>.
 
 My homepage: L<https://savage.net.au/>.
 
+=head1 License
+
+Perl 5.
+
 =head1 Copyright
 
-Australian copyright (c) 2025, Ron Savage.
+Copyright (c) 2026, Ron Savage.
 
 	All Programs of mine are 'OSI Certified Open Source Software';
 	you can redistribute them and/or modify them under the terms of
