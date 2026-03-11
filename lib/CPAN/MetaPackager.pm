@@ -17,16 +17,23 @@ CPAN::MetaPackager - Manage the cpan.metapackager.sqlite database
 =head1 How to convert a package details file into an SQL db
 
 Notes:
-	a. My web host and I use case-sensitive file systems.
-	b. 02packages.details.txt.gz contains 9 header lines & about 270,458 records
+	a. My web host and I use case-sensitive file systems
+	b. The distro CPAN-MetaPackager-1.00.tgz ships with data/cpan.metapackager.sqlite
+		(15 Mb) which is the output of running scripts/build.db.sh
+	c. You will need your own copy of 02packages.details.txt.gz to run scripts/build.db.sh
+	d. 02packages.details.txt.gz contains 9 header lines & about 270,458 records
 
-Steps (2026-02-17):
+Steps:
 	a. cd /tmp
 	b. wget https://www.cpan.org/modules/02packages.details.txt.gz
 	c. gunzip 02packages.details.txt.gz
 	d. Unpack the distro: tar xvf CPAN-MetaPackager-1.00.tgz
 	e. cd CPAN-MetaPackager
 	f. scripts/build.db.sh (takes 47 mins on my Levono M70Q 'Tiny' desktop)
+	g. Output file: data/cpan.metapackager.sqlite
+
+Note:
+	a. CPAN::MetaCurator defaults to (optionally) reading /tmp/cpan.metapackager.sqlite
 
 =head1 Machine-Readable Change Log
 

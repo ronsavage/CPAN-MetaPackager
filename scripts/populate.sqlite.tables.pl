@@ -27,14 +27,16 @@ say "populate.sqlite.tables.pl - Populate all SQLite tables\n";
 
 my(%options);
 
-$options{help}	 	= 0;
-$options{home_path}	= "$ENV{HOME}/perl.modules/CPAN-MetaPackager";
-$options{log_level}	= 'info';
+$options{help}		 	= 0;
+$options{home_path}		= "$ENV{HOME}/perl.modules/CPAN-MetaPackager";
+$options{log_level}		= 'info';
+$options{packages_path}	= '/tmp/02packages.details.txt';
 my(%opts)			=
 (
-	'help'			=> \$options{help},
-	'home_path'		=> \$options{home_path},
-	'log_level=s'	=> \$options{log_level},
+	'help'				=> \$options{help},
+	'home_path'			=> \$options{home_path},
+	'packages_path=s'	=> \$options{packages_path},
+	'log_level=s'		=> \$options{log_level},
 );
 
 GetOptions(%opts) || die("Error in options. Options: " . Dumper(%opts) );
@@ -63,6 +65,7 @@ populate.sqlite.tables.pl [options]
 	Options:
 	-help
 	-home_path string
+	-packages_path string
 	-log_level info
 
 All switches can be reduced to a single letter, except of course -he and -ho.
@@ -88,6 +91,12 @@ Default: $ENV{HOME}/perl.modules/CPAN-MetaPackager.
 Available log levels are trace, debug, info, warn, error and fatal, in that order.
 
 Default: info.
+
+=item -packages_path String
+
+The path to 02packages.details.txt.
+
+Default: /tmp/02packages.details.txt.
 
 =back
 

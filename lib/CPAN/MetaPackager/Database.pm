@@ -101,32 +101,6 @@ sub build_pad
 
 	for (@{$self -> table_names}) {$$pad{$_} = $self -> read_table($_) };
 
-	# Constants.
-
-	$$pad{$$_{name} } = $$_{value} for (@{$$pad{constants} });
-
-	# Modules.
-	# There is a db table called modules so we need another name for the hash
-	# where the keys are the names of the modules and the values are db ids.
-
-	$$pad{module_names}				= {};
-	$$pad{module_names}{$$_{name} }	= $$_{id} for (@{$$pad{modules} });
-
-	# Topics.
-	# There is a db table called topics so we need another name for the hash
-	# where the keys are the names of the topics and the values are db ids.
-
-	$$pad{topic_names}		= {};
-	$$pad{topic_html_ids}	= {};
-
-	for (@{$$pad{topics} })
-	{
-		$$pad{count}{topic}++;
-
-		$$pad{topic_html_ids}{$$_{title} }	= html_id_offset * $$_{id};
-		$$pad{topic_names}{$$_{title} }		= $$_{id};
-	}
-
 	# Dates.
 	# DateTime::Tiny does not handle time_zone.
 
