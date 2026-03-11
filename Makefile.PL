@@ -45,7 +45,6 @@ my(%params) =
 		'Getopt::Long'				=> 2.57,
 		'Mojo::Log'					=> undef,
 		'Moo'						=> 2.005005,
-		'open'						=> 1.13,
 		'parent'					=> 0.242,
 		'Pod::Usage'				=> 2.03,
 		'strict'					=> 1.12,
