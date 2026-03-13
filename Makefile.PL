@@ -46,6 +46,7 @@ my(%params) =
 		'Mojo::Log'					=> undef,
 		'Moo'						=> 2.005005,
 		'parent'					=> 0.242,
+		'perl'						=> 5.36,
 		'Pod::Usage'				=> 2.03,
 		'strict'					=> 1.12,
 		'Types::Standard'			=> 2.006000,
@@ -53,6 +54,9 @@ my(%params) =
 	},
 	TEST_REQUIRES =>
 	{
+		'Test::CPAN::Changes'			=> 0.500005,
+		'Test::Changes::Strict::Simple'	=> 0.01,
+		'Test::More'					=> 1.001002,
 	},
 	VERSION_FROM => 'lib/CPAN/MetaPackager.pm',
 );
