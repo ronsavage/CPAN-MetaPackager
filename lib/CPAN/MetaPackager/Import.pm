@@ -97,7 +97,7 @@ sub populate_packages_table
 
 		if ($count{package} % 10000 == 0)
 		{
-			$time_taken	= ($start_time - time) / 60; # Convert seconds to minutes.
+			$time_taken	= (time - $start_time) / 60; # Convert seconds to minutes.
 			$time_taken	= sprintf('%i mins', $time_taken);
 
 			say "Stored $count{package} records into '$table_name'. Time taken: $time_taken";
