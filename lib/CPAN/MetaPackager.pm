@@ -2,7 +2,7 @@ package CPAN::MetaPackager;
 
 use 5.36.0;
 
-our $VERSION = '1.00';
+our $VERSION = '1.01';
 
 #-------------------------------------------------
 
