@@ -29,7 +29,7 @@ Steps:
 	c. gunzip 02packages.details.txt.gz
 	d. Unpack the distro: tar xvf CPAN-MetaPackager-1.00.tgz
 	e. cd CPAN-MetaPackager
-	f. scripts/build.db.sh (takes 47 mins on my Levono M70Q 'Tiny' desktop)
+	f. time scripts/build.db.sh (takes 67 mins on my Levono M70Q 'Tiny' desktop)
 	g. Output file: data/cpan.metapackager.sqlite
 
 Note:

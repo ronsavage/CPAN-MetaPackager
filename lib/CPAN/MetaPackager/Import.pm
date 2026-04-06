@@ -11,6 +11,8 @@ use DateTime::Tiny;
 use File::Spec;
 use File::Slurper 'read_lines';
 
+use Time::HiRes qw/gettimeofday tv_interval/;
+
 use Moo;
 
 use Types::Standard qw/Str/;
@@ -56,7 +58,8 @@ sub populate_packages_table
 
 	$self -> get_table_column_names(true, $table_name); # Populates $self -> column_names.
 
-	my($packages) = $self -> read_packages_file;
+	my($packages)	= $self -> read_packages_file;
+	my($start_time)	= [gettimeofday];
 
 	my($author);
 	my(%count);
@@ -64,6 +67,7 @@ sub populate_packages_table
 	my(@fields);
 	my($package);
 	my($record);
+	my($time_taken);
 	my($version);
 
 	$count{package}	= 0;
@@ -92,7 +96,14 @@ sub populate_packages_table
 			}
 		);
 
-		say "Stored $count{package} records into '$table_name'" if ($count{package} % 10000 == 0);
+
+		if ($count{package} % 10000 == 0)
+		{
+			$time_taken	= tv_interval($start_time) % 60; # Convert seconds to minutes.
+			$time_taken	= sprintf('%i mins', $time_taken);
+
+			say "Stored $count{package} records into '$table_name'. Time taken: $time_taken";
+		}
 	}
 
 	my($pad)			= $self -> pad; # For temporary use, during import.
