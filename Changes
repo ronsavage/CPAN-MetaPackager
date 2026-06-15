@@ -1,5 +1,9 @@
 Revision history for perl module CPAN::MetaPackager.
 
+1.03  2026-06-15
+	- Download a new gunzip 02packages.details.txt.gz & rebuild the db.
+	- Rewrite the instructions in MetaPackager.pm
+
 1.02  2026-05-03
 	- Download a new gunzip 02packages.details.txt.gz & rebuild the db.
 
