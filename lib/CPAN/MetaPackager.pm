@@ -26,11 +26,7 @@ CPAN::MetaPackager - Manage the cpan.metapackager.sqlite database
 
 =over
 =item 'Run' here means run from the bash command line
-=item cd /tmp
-=item Run: wget https://www.cpan.org/modules/02packages.details.txt.gz
-=item Run: gunzip 02packages.details.txt.gz
-=item Run: cp 02packages.details.txt ~/backup
-=item Run: tar xvf CPAN-MetaPackager-1.00.tgz
+=item See the POD for CPAN::MetaCurator re downloading a new 02packages.details.txt.gz
 =item cd CPAN-MetaPackager
 =item The next command will take 104 minutes for 264,956 records on my Levono M70Q 'Tiny' desktop
 =item Run: time scripts/build.db.sh

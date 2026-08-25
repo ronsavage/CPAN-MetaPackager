@@ -1,0 +1,19 @@
+[2026-08-24 12:49:55.03464] [83078] [info] Connected to dbi:SQLite:dbname=./data/cpan.metapackager.sqlite
+[2026-08-24 12:49:55.03483] [83078] [info] --------------------------------------------------
+[2026-08-24 12:49:55.03486] [83078] [info] Dropping all tables
+[2026-08-24 12:49:55.29918] [83078] [info] Dropped all tables
+[2026-08-24 12:49:55.29924] [83078] [info] --------------------------------------------------
+[2026-08-24 12:49:55.52422] [83079] [info] Connected to dbi:SQLite:dbname=./data/cpan.metapackager.sqlite
+[2026-08-24 12:49:55.52439] [83079] [info] --------------------------------------------------
+[2026-08-24 12:49:55.52442] [83079] [info] Creating all tables
+[2026-08-24 12:49:55.53651] [83079] [info] Created all tables
+[2026-08-24 12:49:55.53660] [83079] [info] --------------------------------------------------
+[2026-08-24 12:49:55.76100] [83080] [info] Connected to dbi:SQLite:dbname=/home/ron/perl.modules/CPAN-MetaPackager/data/cpan.metapackager.sqlite
+[2026-08-24 12:49:55.76118] [83080] [info] --------------------------------------------------
+[2026-08-24 12:49:55.76121] [83080] [info] Populating all tables
+[2026-08-24 12:49:55.76184] [83080] [info] Connected to dbi:SQLite:dbname=/home/ron/perl.modules/CPAN-MetaPackager/data/cpan.metapackager.sqlite
+[2026-08-24 12:49:55.76191] [83080] [info] --------------------------------------------------
+[2026-08-24 12:49:55.84579] [83080] [info] /tmp/02packages.details.txt: record count: 258912. Includes 9 header records
+[2026-08-24 17:36:04.42341] [83080] [info] Finished populate_packages_table(). Stored 258903 records into table 'packages'
+[2026-08-24 17:36:04.43167] [83080] [info] Populated all tables
+[2026-08-24 17:36:04.43170] [83080] [info] --------------------------------------------------
