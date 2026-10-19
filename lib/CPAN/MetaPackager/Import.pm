@@ -1,6 +1,6 @@
 package CPAN::MetaPackager::Import;
 
-use 5.36.0;
+use 5.044.0;
 use boolean;
 use parent 'CPAN::MetaPackager::Database';
 use warnings qw(FATAL utf8); # Fatalize encoding glitches.
