@@ -1,6 +1,5 @@
 package CPAN::MetaPackager::Database;
 
-use 5.044.0;
 use parent 'CPAN::MetaPackager::Config';
 use warnings qw(FATAL utf8); # Fatalize encoding glitches.
 

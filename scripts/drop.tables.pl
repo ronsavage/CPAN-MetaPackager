@@ -1,7 +1,5 @@
 #!/usr/bin/env perl
 
-use 5.044.0;
-
 use Data::Dumper::Concise; # For Dumper.
 
 use Getopt::Long;
