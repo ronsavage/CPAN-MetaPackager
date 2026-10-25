@@ -1,7 +1,5 @@
 package CPAN::MetaPackager;
 
-use 5.044.0;
-
 our $VERSION = '1.04';
 
 #-------------------------------------------------
@@ -13,6 +11,10 @@ our $VERSION = '1.04';
 =head1 NAME
 
 CPAN::MetaPackager - Manage the cpan.metapackager.sqlite database
+
+=head1 Operational Instructions
+
+L<http://savage.net.au/misc/cpan.metacurator.help.html>
 
 =head1 Machine-Readable Change Log
 
